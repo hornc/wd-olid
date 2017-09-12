@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Wikidata OLID Merger",
+  "description": "Allows a user to merge multiple Open Library author records from a Wikidata person entry with multiple P648 properties.",
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab"
+    
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.wikidata.org/*"],
+      "js": ["wdolids.js"]
+    }
+  ]
+}
