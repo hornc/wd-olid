@@ -5,7 +5,11 @@ var ol = document.getElementById('P648');
 var query_olids = "<a href=\"https://query.wikidata.org/#%23People%20with%20more%20than%20one%20OLID%0ASELECT%20%3Fitem%20%3FitemLabel%20%3Fcount%0AWHERE%0A%7B%0A%20%20%7B%0A%20%20%20%20SELECT%20%3Fitem%20%28COUNT%28DISTINCT%20%3Folid%29%20AS%20%3Fcount%29%20WHERE%20%7B%0A%20%20%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%0A%20%20%20%20%20%20%3Fitem%20wdt%3AP648%20%3Folid%20.%0A%0A%20%20%20%20%7D%0A%20%20%20%20GROUP%20BY%20%3Fitem%0A%20%20%7D%0A%20%20FILTER%20%28%20%3Fcount%20%3E%201%20%29%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%20.%20%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fcount%29%20%3FitemL\">QUERY DUPED OLIDS</a>"
 
 function getProp(prop_id) {
-  return document.getElementById(prop_id).getElementsByClassName("wikibase-snakview-value")[0].firstChild.textContent;
+  if (document.getElementById(prop_id)) {
+    return document.getElementById(prop_id).getElementsByClassName("wikibase-snakview-value")[0].firstChild.textContent;
+  } else {
+    return ""
+  }
 }
 
 var wdid = document.URL.split('/').slice(-1)[0];
