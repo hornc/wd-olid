@@ -28,7 +28,7 @@ if (ol) {
 
   var dates = dob + " - " + dod + "</br>";
 
-  var multi =  olids.length + " OLIDs found</br>";
+  var multi =  olids.length + " OLIDs found <a href=\"#P648\">below</a></br>";
 
   var mergeUrl = "https://openlibrary.org/authors/merge?";
 
