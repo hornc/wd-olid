@@ -1,5 +1,3 @@
-//alert("Hello from wdolid script!");
-
 var body = document.getElementById('bodyContent');
 
 var ol = document.getElementById('P648');
@@ -24,7 +22,6 @@ if (ol) {
   var id_yaml = "<pre>remote_ids:\n    viaf: '" + viaf + "'\n"
                 + "    wikidata: " + wdid + "\n</pre";
 
-
   var dates = dob + " - " + dod + "</br>";
 
   var multi =  olids.length + " OLIDs found</br>";
@@ -38,17 +35,14 @@ if (ol) {
   }
   var link = "<a href=\"" + mergeUrl + "\">Merge Authors on OpenLibrary</a>"
 
-  myContent.innerHTML = query_olids + "</br>" + dates;
+  myContent.innerHTML = query_olids + "</br>" + name + "</br>" + dates;
   if (olids.length > 1) {
     myContent.innerHTML += multi + link;
   } else {
     var ol_edit = "<a href=\"" + olids[0] + ".yml?m=edit\">Add external ids to single OLID</a>";
     myContent.innerHTML += ol_edit
   }
-
-  myContent.innerHTML += name + "</br>"
   myContent.innerHTML +=  id_yaml
   body.insertBefore(myContent, body.firstChild);
-
 
 }
