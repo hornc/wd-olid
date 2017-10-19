@@ -26,4 +26,4 @@ On any Wikidata person entity ([example](https://www.wikidata.org/wiki/Q5621413)
   ```
 
 ### Other features
-On openlibrary.com this extension will also highlight any search result edition that does not have a work.
+On openlibrary.org this extension will also highlight any search result edition that does not have a work.
