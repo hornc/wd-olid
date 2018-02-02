@@ -22,9 +22,10 @@ if (ol) {
   var dod = getProp('P570');
   var viaf = getProp('P214'); 
 
-
+  var dates_yaml = "<pre>birth_date: '"+ dob + "'\n"
+                   + "death_date: '"+ dod +"'\n</pre>";
   var id_yaml = "<pre>remote_ids:\n    viaf: '" + viaf + "'\n"
-                + "    wikidata: " + wdid + "\n</pre";
+                + "    wikidata: " + wdid + "\n</pre>";
 
   var dates = dob + " - " + dod + "</br>";
 
@@ -46,7 +47,7 @@ if (ol) {
     var ol_edit = "<a href=\"" + olids[0] + ".yml?m=edit\">Add external ids to single OLID</a>";
     myContent.innerHTML += ol_edit
   }
-  myContent.innerHTML +=  id_yaml
+  myContent.innerHTML +=  dates_yaml + id_yaml;
   body.insertBefore(myContent, body.firstChild);
 
 }
