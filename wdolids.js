@@ -20,11 +20,13 @@ if (ol) {
 
   var dob = getProp('P569');
   var dod = getProp('P570');
-  var viaf = getProp('P214'); 
+  var viaf = getProp('P214');
+  var isni = getProp('P213').replace(/ /g, '');
 
   var dates_yaml = "<pre>birth_date: '"+ dob + "'\n"
                    + "death_date: '"+ dod +"'\n</pre>";
-  var id_yaml = "<pre>remote_ids:\n    viaf: '" + viaf + "'\n"
+  var id_yaml = "<pre>remote_ids:\n    isni: '" + isni + "'\n"
+                + "    viaf: '" + viaf + "'\n"
                 + "    wikidata: " + wdid + "\n</pre>";
 
   var dates = dob + " - " + dod + "</br>";
