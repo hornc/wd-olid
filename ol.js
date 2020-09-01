@@ -44,15 +44,3 @@ if (results) {
 function get_olid() {
     return(window.location.pathname.match(/OL[0-9]+M/)[0])
 }
-
-// Add admin sync button on Edition pages for editions with OCAIDs
-titles = document.querySelectorAll('span.title')
-for (let title of titles) {
-    if (title.innerHTML.includes("Internet Archive")) {
-       console.log("FOUND IT!")
-       btn = document.createElement("BUTTON")
-       btn.innerHTML = "sync"
-       btn.setAttribute('onclick', "window.open('https://openlibrary.org/admin/sync?edition_id=" + get_olid() + "');")
-       title.insertBefore(btn, title.firstChild)
-    }
-}
