@@ -34,15 +34,22 @@ if (ol) {
   var multi =  olids.length + " OLIDs found <a href=\"#P648\">below</a></br>";
 
   var mergeUrl = "https://openlibrary.org/authors/merge?";
-
   var myContent = document.createElement('span');
-
-  for (var i=0;i<olids.length;i++) {
-    mergeUrl += "key=" + olids[i].innerHTML + "&";
+  var collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+  var sortedOlids =  Array.from(olids, x => x.innerText).sort(collator.compare);
+  for (var i=0;i<sortedOlids.length;i++) {
+    mergeUrl += "key=" + sortedOlids[i] + "&";
   }
   var link = "<a href=\"" + mergeUrl + "\">Merge Authors on OpenLibrary</a>"
 
   myContent.innerHTML = query_olids + "</br>" + name + "</br>" + dates;
+  myContent.innerHTML += "Lowest OLID: " + sortedOlids[0] + "</br>";
+  // Highlight lowest olid
+  for (var i=0;i<olids.length;i++) {
+    if (olids[i].innerText == sortedOlids[0]) {
+      olids[i].closest(".wikibase-statementview-mainsnak-container").style.background = "springgreen";
+    }
+  }
   if (olids.length > 1) {
     myContent.innerHTML += multi + link;
   } else {
