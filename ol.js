@@ -8,10 +8,10 @@ function associate_work(work_id) {
    });
    txt = "Associate " + editions + " with " + work_id + "\n";
    txt += "<pre>move_editions(['" + editions.join("','") + "'], '" + work_id + "')</pre>";
-   $( "<div>" + txt + "</div>" ).dialog();
+   $( "<div>" + txt + "</div>" ).dialog({minWidth: 800});
 }
 
-results = document.getElementById("siteSearch")
+results = document.getElementById("searchResults")
 if (results) {
     items = results.getElementsByClassName("searchResultItem")
 
