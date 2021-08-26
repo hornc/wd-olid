@@ -40,13 +40,14 @@ if (ol) {
   for (var i=0;i<sortedOlids.length;i++) {
     mergeUrl += "key=" + sortedOlids[i] + "&";
   }
-  var link = "<a href=\"" + mergeUrl + "\">Merge Authors on OpenLibrary</a>"
+  var link = "<a href=\"" + mergeUrl + "\">Merge Authors on OpenLibrary</a>";
 
   myContent.innerHTML = query_olids + "</br>" + name + "</br>" + dates;
-  myContent.innerHTML += "Lowest OLID: " + sortedOlids[0] + "</br>";
+  lowOLID = sortedOlids[0];
+  myContent.innerHTML += "Lowest OLID: <a href=\"https://openlibrary.org/authors/" + lowOLID + "\">" + lowOLID + "</a></br>";
   // Highlight lowest olid
   for (var i=0;i<olids.length;i++) {
-    if (olids[i].innerText == sortedOlids[0]) {
+    if (olids[i].innerText == lowOLID) {
       olids[i].closest(".wikibase-statementview-mainsnak-container").style.background = "springgreen";
     }
   }
@@ -54,7 +55,7 @@ if (ol) {
     myContent.innerHTML += multi + link;
   } else {
     var ol_edit = "<a href=\"" + olids[0] + ".yml?m=edit\">Add external ids to single OLID</a>";
-    myContent.innerHTML += ol_edit
+    myContent.innerHTML += ol_edit;
   }
   myContent.innerHTML +=  dates_yaml + id_yaml;
   body.insertBefore(myContent, body.firstChild);
