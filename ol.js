@@ -6,9 +6,9 @@ function associate_work(work_id) {
     editions.push($(this).val());
     $(this).removeAttr('checked');
    });
-   txt = "Associate " + editions + " with " + work_id + "\n";
+   txt = "Associate " + editions + " with " + work_id + "</br></br>\n";
    txt += "<pre>move_editions(['" + editions.join("','") + "'], '" + work_id + "')</pre>";
-   $( "<div>" + txt + "</div>" ).dialog({minWidth: 800});
+   $( "<div>" + txt + "</div>" ).dialog({minWidth: 700});
 }
 
 results = document.getElementById("searchResults")
