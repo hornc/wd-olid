@@ -43,7 +43,7 @@ if (ol) {
   var link = "<a href=\"" + mergeUrl + "\">Merge Authors on OpenLibrary</a>";
 
   myContent.innerHTML = query_olids + "</br>" + name + "</br>" + dates;
-  lowOLID = sortedOlids[0];
+  var lowOLID = sortedOlids[0];
   myContent.innerHTML += "Lowest OLID: <a href=\"https://openlibrary.org/authors/" + lowOLID + "\">" + lowOLID + "</a></br>";
   // Highlight lowest olid
   for (var i=0;i<olids.length;i++) {
