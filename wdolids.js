@@ -36,7 +36,7 @@ if (ol) {
   var mergeUrl = "https://openlibrary.org/authors/merge?";
   var myContent = document.createElement('span');
   var collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
-  var sortedOlids =  Array.from(olids, x => x.innerText).sort(collator.compare);
+  var sortedOlids =  Array.from(olids, x => x.innerText.startsWith("OL") ? x.innerText : "X_" + x.innerText).sort(collator.compare);
   for (var i=0;i<sortedOlids.length;i++) {
     mergeUrl += "key=" + sortedOlids[i] + "&";
   }
