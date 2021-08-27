@@ -2,7 +2,7 @@ var body = document.getElementById('bodyContent');
 
 var ol = document.getElementById('P648');
 
-var query_olids = "<a href=\"https://query.wikidata.org/#SELECT%20%3Fitem%20%28GROUP_CONCAT%28DISTINCT%20%3Folid%3B%20separator%3D%22%2C%20%22%29%20as%20%3Folids%29%20%28count%28%3Folid%29%20as%20%3Fnum%29%0AWHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP648%20%3Folid%20.%20%20%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%0A%20%20%7D%20%0AGROUP%20BY%20%3Fitem%0AHAVING%28count%28%3Folid%29%20%3E%203%29%0AORDER%20BY%20DESC%28%3Fnum%29%20STRLEN%28STR%28%3Fitem%29%29%20STR%28%3Fitem%29\">QUERY DUPED OLIDS</a>"
+var query_olids = "<a href=\"https://query.wikidata.org/#SELECT%20%3Fitem%20%3FitemLabel%20%20%28GROUP_CONCAT%28DISTINCT%20%3Folid%3B%20separator%3D%22%2C%20%22%29%20as%20%3Folids%29%20%28count%28%3Folid%29%20as%20%3Fnum%29%20%0AWHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP648%20%3Folid%20.%20%20%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%0A%20%20%3Fitem%20rdfs%3Alabel%20%3FitemLabel%20filter%20%28lang%28%3FitemLabel%29%20%3D%20%22en%22%29.%0A%20%20%7D%0AGROUP%20BY%20%3Fitem%20%3FitemLabel%0AHAVING%28count%28%3Folid%29%20%3E%203%29%0AORDER%20BY%20DESC%28%3Fnum%29%20STRLEN%28STR%28%3Fitem%29%29%20STR%28%3Fitem%29\">QUERY DUPED OLIDS</a>"
 
 function getProp(prop_id) {
   if (document.getElementById(prop_id)) {
