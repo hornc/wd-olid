@@ -25,9 +25,11 @@ if (ol) {
 
   var dates_yaml = "<pre>birth_date: '"+ dob + "'\n"
                    + "death_date: '"+ dod +"'\n</pre>";
-  var id_yaml = "<pre>remote_ids:\n    isni: '" + isni + "'\n"
-                + "    viaf: '" + viaf + "'\n"
-                + "    wikidata: " + wdid + "\n</pre>";
+  var id_yaml = "<pre>remote_ids:\n";
+  if (isni) id_yaml += "    isni: '" + isni + "'\n";
+  if (viaf) id_yaml += "    viaf: '" + viaf + "'\n";
+  if (wdid) id_yaml += "    wikidata: " + wdid + "\n";
+  id_yaml += "</pre>";
 
   var dates = dob + " - " + dod + "</br>";
 
