@@ -35,7 +35,8 @@ if (ol) {
 
   var multi =  olids.length + " OLIDs found <a href=\"#P648\">below</a></br>";
 
-  var mergeUrl = "https://openlibrary.org/authors/merge?";
+  const authorsURL = "https://openlibrary.org/authors/";
+  var mergeUrl = authorsURL + "merge?";
   var myContent = document.createElement('span');
   var collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
   var sortedOlids =  Array.from(olids, x => x.innerText.startsWith("OL") ? x.innerText : "X_" + x.innerText).sort(collator.compare);
@@ -46,7 +47,7 @@ if (ol) {
 
   myContent.innerHTML = query_olids + "</br>" + name + "</br>" + dates;
   var lowOLID = sortedOlids[0];
-  myContent.innerHTML += "Lowest OLID: <a href=\"https://openlibrary.org/authors/" + lowOLID + "\">" + lowOLID + "</a></br>";
+  myContent.innerHTML += "Lowest OLID: <a href=\"" + authorsURL + lowOLID + "\">" + lowOLID + "</a></br>";
   // Highlight lowest olid
   for (var i=0;i<olids.length;i++) {
     if (olids[i].innerText == lowOLID) {
@@ -56,7 +57,7 @@ if (ol) {
   if (olids.length > 1) {
     myContent.innerHTML += multi + link;
   } else {
-    var ol_edit = "<a href=\"" + olids[0] + ".yml?m=edit\">Add external ids to single OLID</a>";
+    var ol_edit = "<a href=\"" + authorsURL + lowOLID + ".yml?m=edit\">Add external ids to single OLID</a>";
     myContent.innerHTML += ol_edit;
   }
   myContent.innerHTML +=  dates_yaml + id_yaml;
